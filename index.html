@@ -67,3 +67,45 @@
 
   <div class="app-shell">
     <div class="app-header">
+      <h1>Tishman Event Assistant</h1>
+      <p>Your concierge for schedules, spaces, and guest services</p>
+    </div>
+
+    <div class="app-content">
+      <p>Welcome! Tap below to chat with your virtual assistant.</p>
+
+      <button class="launch-btn" onclick="Genesys('command', 'Messenger.open')">
+        Chat with Concierge
+      </button>
+    </div>
+  </div>
+
+  <!-- Genesys Deployment Snippet -->
+  <script type="text/javascript" charset="utf-8">
+    (function (g, e, n, es, ys) {
+      g['_genesysJs'] = e;
+      g[e] = g[e] || function () {
+        (g[e].q = g[e].q || []).push(arguments)
+      };
+      g[e].t = 1 * new Date();
+      g[e].c = es;
+      ys = document.createElement('script'); 
+      ys.async = 1; 
+      ys.src = n; 
+      ys.charset = 'utf-8'; 
+      document.head.appendChild(ys);
+    })(window, 'Genesys', 'https://apps.mypurecloud.com/genesys-bootstrap/genesys.min.js', {
+      environment: 'prod',
+      deploymentId: 'b83171f1-e06f-4a6d-99a8-344bf65899f2'
+    });
+  </script>
+
+  <!-- Boot Messenger on load -->
+  <script>
+    window.addEventListener("load", function () {
+      Genesys("command", "Messenger.boot");
+    });
+  </script>
+
+</body>
+</html>
