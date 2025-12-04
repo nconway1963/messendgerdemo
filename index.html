@@ -10,7 +10,7 @@
       margin: 0;
       padding: 20px;
       background: #f4f4f4;
-      color: #000;              /* force black text */
+      color: #000;
     }
     .app-shell {
       max-width: 430px;
@@ -65,8 +65,13 @@
     </div>
 
     <div class="app-content">
-      <p>Welcome! Tap below to chat with your virtual assistant.</p>
-     </div>
+      <p>Welcome! Your virtual assistant will appear automatically in a moment.</p>
+
+      <!-- This button is optional — chat opens automatically anyway -->
+      <button class="launch-btn" onclick="Genesys('command', 'Messenger.open')">
+        Chat with Concierge
+      </button>
+    </div>
   </div>
 
   <!-- Genesys Deployment Snippet -->
@@ -89,13 +94,5 @@
     });
   </script>
 
-  <!-- Boot Messenger on load -->
-  <script>
-    window.addEventListener("load", function () {
-      Genesys("command", "Messenger.boot");
-      Genesys("command", "Messenger.open");
-    });
-  </script>
-
-</body>
-</html>
+  <!-- Auto-boot and auto-open Messenger -->
+  <scri
